@@ -26,6 +26,10 @@
   margin: 10px;
 }
 
+.task-list__navagation-button:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
 .task-list__pool {
   border: 1px solid blue;
   margin-top: 60px;

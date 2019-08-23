@@ -1,6 +1,26 @@
 [
-  { "id": 4, "description": "Do your laundry" },
-  { "id": 1, "description": "Buy groceries" },
-  { "id": 2, "description": "Call mom" },
-  { "id": 3, "description": "Do homework" }
+  {
+    "id": 4,
+    "description": "Do your laundry",
+    "dueTo": "10.10.2019",
+    "finished": true
+  },
+  {
+    "id": 1,
+    "description": "Buy groceries",
+    "dueTo": "9.9.2019.",
+    "finished": false
+  },
+  {
+    "id": 2,
+    "description": "Call mom",
+    "dueTo": "10.10.2019",
+    "finished": true
+  },
+  {
+    "id": 3,
+    "description": "Do homework",
+    "dueTo": "10.10.2019",
+    "finished": false
+  }
 ]

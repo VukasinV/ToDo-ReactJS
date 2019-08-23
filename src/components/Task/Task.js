@@ -5,7 +5,22 @@ class Task extends Component {
   render() {
     return (
       <div className="task">
-        <p>{this.props.someProp}</p>
+        <input
+          type="checkbox"
+          onClick={event =>
+            this.props.taskFinished(this.props.task.id, event.target.checked)
+          }
+          defaultChecked={this.props.task.finished}
+        />
+        <p
+          style={
+            this.props.task.finished
+              ? { textDecoration: "line-through" }
+              : { textDecoration: "none" }
+          }
+        >
+          {this.props.task.description}
+        </p>
       </div>
     );
   }
