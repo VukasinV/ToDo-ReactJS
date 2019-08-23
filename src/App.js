@@ -4,10 +4,9 @@ import TaskList from "./components/TaskList/TaskList";
 
 function App() {
   return (
-    <div>
-      <p>This is App component</p>
+    <React.Fragment>
       <TaskList />
-    </div>
+    </React.Fragment>
   );
 }
 

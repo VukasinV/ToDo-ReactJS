@@ -1,0 +1,17 @@
+.task-list {
+  border: 1px solid black;
+  margin: auto;
+  height: 400px;
+  width: 250px;
+}
+
+.task-list__header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.task-list__navagation {
+  height: 40px;
+  width: 40px;
+  margin: 10px;
+}

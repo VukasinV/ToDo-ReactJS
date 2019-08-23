@@ -1,10 +1,10 @@
 import React, { Component } from "react";
+import "./Task.css";
 
 class Task extends Component {
   render() {
     return (
-      <div>
-        <p>this is task komponent</p>
+      <div className="task">
         <p>{this.props.someProp}</p>
       </div>
     );
