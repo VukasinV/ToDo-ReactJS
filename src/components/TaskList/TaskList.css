@@ -2,16 +2,31 @@
   border: 1px solid black;
   margin: auto;
   height: 400px;
-  width: 250px;
+  width: 260px;
+  overflow: auto;
+  position: relative;
+}
+
+.task-list::-webkit-scrollbar {
+  width: 0px;
 }
 
 .task-list__header {
+  background: rgb(206, 156, 253);
+  position: fixed;
   display: flex;
   justify-content: space-between;
+  z-index: 2;
+  width: inherit;
 }
 
-.task-list__navagation {
+.task-list__navagation-button {
   height: 40px;
   width: 40px;
   margin: 10px;
+}
+
+.task-list__pool {
+  border: 1px solid blue;
+  margin-top: 60px;
 }
