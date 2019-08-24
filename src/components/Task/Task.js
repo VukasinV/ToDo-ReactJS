@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import "./Task.css";
 
 class Task extends Component {
+  handleRemoveTask() {
+    console.log("I removed taks");
+  }
   render() {
     return (
       <div className="task">
@@ -21,6 +24,17 @@ class Task extends Component {
         >
           {this.props.task.description}
         </p>
+        <div
+          className="task__exit-btn"
+          onClick={event => this.props.deleteTask(this.props.task.id)}
+        >
+          <img
+            src="./remove-button.svg"
+            alt="remove task"
+            height="25"
+            width="25"
+          />
+        </div>
       </div>
     );
   }

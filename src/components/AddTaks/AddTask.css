@@ -1,0 +1,10 @@
+.add-task {
+  margin-top: 70px;
+  display: flex;
+  margin-bottom: 6px;
+  padding: 5px;
+}
+
+.add-task__btn {
+  margin-left: 5px;
+}

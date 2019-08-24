@@ -21,8 +21,6 @@
 }
 
 .task-list__navagation-button {
-  height: 40px;
-  width: 40px;
   margin: 10px;
 }
 
@@ -32,5 +30,4 @@
 
 .task-list__pool {
   border: 1px solid blue;
-  margin-top: 60px;
 }
