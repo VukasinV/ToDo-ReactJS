@@ -1,15 +1,17 @@
-import React, { Component } from "react";
-import AddTask from "../AddTaks/AddTask";
-import Task from "../Task/Task";
-import "./TaskList.css";
-import axios from "axios";
-import { CSSTransition } from "react-transition-group";
+import React, { Component } from 'react';
+import AddTask from '../AddTaks/AddTask';
+import Task from '../Task/Task';
+import './TaskList.css';
+import axios from 'axios';
+import { CSSTransition } from 'react-transition-group';
+import leftArrow from '../../static/left-arrow.svg';
+import rightArrow from '../../static/right-arrow.svg';
 
 class TaskList extends Component {
-  state = { value: "This is state value", tasks: [] };
+  state = { value: 'This is state value', tasks: [] };
 
   componentDidMount() {
-    axios.get("/api/tasks").then(res => this.setState({ tasks: res.data }));
+    axios.get('/api/tasks').then(res => this.setState({ tasks: res.data }));
   }
 
   taskFinished = (id, finished) => {
@@ -20,14 +22,14 @@ class TaskList extends Component {
 
   handleAddEvent = eventDescription => {
     axios
-      .post("/api/tasks", { description: eventDescription })
+      .post('/api/tasks', { description: eventDescription })
       .then(res => this.setState({ tasks: res.data }));
   };
 
   deleteTask = id => {
     console.log(id);
     axios
-      .delete("/api/tasks/" + id)
+      .delete('/api/tasks/' + id)
       .then(res => this.setState({ tasks: res.data }));
   };
 
@@ -36,17 +38,12 @@ class TaskList extends Component {
       <div className="task-list">
         <div className="task-list__header">
           <div className="task-list__navagation-button">
-            <img
-              src="./left-arrow.svg"
-              alt="left-navigation"
-              height="40"
-              width="40"
-            />
+            <img src={leftArrow} alt="left-navigation" height="40" width="40" />
           </div>
           <p>10. january 2019.</p>
           <div className="task-list__navagation-button" alt="right-navigation">
             <img
-              src="./right-arrow.svg"
+              src={rightArrow}
               alt="right-navigation"
               height="40"
               width="40"

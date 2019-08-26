@@ -1,9 +1,10 @@
-import React, { Component } from "react";
-import "./Task.css";
+import React, { Component } from 'react';
+import './Task.css';
+import removeBtn from '../../static/remove-button.svg';
 
 class Task extends Component {
   handleRemoveTask() {
-    console.log("I removed taks");
+    console.log('I removed taks');
   }
   render() {
     return (
@@ -18,8 +19,8 @@ class Task extends Component {
         <p
           style={
             this.props.task.finished
-              ? { textDecoration: "line-through" }
-              : { textDecoration: "none" }
+              ? { textDecoration: 'line-through' }
+              : { textDecoration: 'none' }
           }
         >
           {this.props.task.description}
@@ -28,12 +29,7 @@ class Task extends Component {
           className="task__exit-btn"
           onClick={event => this.props.deleteTask(this.props.task.id)}
         >
-          <img
-            src="./remove-button.svg"
-            alt="remove task"
-            height="25"
-            width="25"
-          />
+          <img src={removeBtn} alt="remove task" height="25" width="25" />
         </div>
       </div>
     );
