@@ -1,4 +1,4 @@
-import { FETCH_TASKS } from "../actions/types";
+import { FETCH_TASKS, POST_TASK } from "../actions/types";
 
 const initialState = {
   items: [],
@@ -11,6 +11,12 @@ const tasksReducer = (state = initialState, action) => {
       return {
         ...state,
         items: action.payload
+      };
+    case POST_TASK:
+      return {
+        ...state,
+        item: action.payload,
+        items: [...action.payload, state.items]
       };
     default:
       return state;

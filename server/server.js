@@ -32,7 +32,7 @@ app.post("/api/tasks", (req, res) => {
   fileSystem.writeFile("./data/tasks.json", JSON.stringify(newTasks), err => {
     console.log(err);
   });
-  res.json(newTasks);
+  res.json(task);
 });
 
 app.delete("/api/tasks/:id", (req, res) => {
