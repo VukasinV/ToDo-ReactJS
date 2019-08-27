@@ -13,7 +13,6 @@ class TaskList extends Component {
   state = { value: "This is state value", tasks: [], tasksFromProps: [] };
 
   componentDidMount() {
-    // axios.get("/api/tasks").then(res => this.setState({ tasks: res.data }));
     this.props.fetchTasks();
   }
 
