@@ -14,6 +14,7 @@ app.get("/api/tasks", (req, res) => {
 
 app.post("/api/tasks", (req, res) => {
   const oldTasks = require("./data/tasks.json");
+  console.log(oldTasks);
   let task = req.body;
   const newId =
     Math.max.apply(
@@ -32,7 +33,7 @@ app.post("/api/tasks", (req, res) => {
   fileSystem.writeFile("./data/tasks.json", JSON.stringify(newTasks), err => {
     console.log(err);
   });
-  res.json(task);
+  res.json(newTasks);
 });
 
 app.delete("/api/tasks/:id", (req, res) => {

@@ -10,8 +10,8 @@ export const fetchTasks = () => dispatch => {
   );
 };
 
-export const createTask = task => dispatch => {
-  axios.post("/api/tasks").then(result =>
+export const createTask = eventDescription => dispatch => {
+  axios.post("/api/tasks", { description: eventDescription }).then(result =>
     dispatch({
       type: POST_TASK,
       payload: result.data

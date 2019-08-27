@@ -15,8 +15,7 @@ const tasksReducer = (state = initialState, action) => {
     case POST_TASK:
       return {
         ...state,
-        item: action.payload,
-        items: [...action.payload, state.items]
+        item: action.payload
       };
     default:
       return state;

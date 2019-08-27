@@ -7,7 +7,7 @@ import { CSSTransition } from "react-transition-group";
 import leftArrow from "../../static/left-arrow.svg";
 import rightArrow from "../../static/right-arrow.svg";
 import { connect } from "react-redux";
-import { fetchTasks } from "../../services/actions/tasksActions";
+import { fetchTasks, createTask } from "../../services/actions/tasksActions";
 
 class TaskList extends Component {
   state = { value: "This is state value", tasks: [], tasksFromProps: [] };
@@ -73,11 +73,10 @@ class TaskList extends Component {
 }
 
 const mapStateToProps = state => ({
-  tasks: state.tasks.items,
-  tasksFromProps: state.tasks.items
+  tasks: state.tasks.items
 });
 
 export default connect(
   mapStateToProps,
-  { fetchTasks }
+  { fetchTasks, createTask }
 )(TaskList);

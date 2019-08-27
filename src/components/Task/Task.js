@@ -1,11 +1,8 @@
-import React, { Component } from 'react';
-import './Task.css';
-import removeBtn from '../../static/remove-button.svg';
+import React, { Component } from "react";
+import "./Task.css";
+import removeBtn from "../../static/remove-button.svg";
 
 class Task extends Component {
-  handleRemoveTask() {
-    console.log('I removed taks');
-  }
   render() {
     return (
       <div className="task">
@@ -19,8 +16,8 @@ class Task extends Component {
         <p
           style={
             this.props.task.finished
-              ? { textDecoration: 'line-through' }
-              : { textDecoration: 'none' }
+              ? { textDecoration: "line-through" }
+              : { textDecoration: "none" }
           }
         >
           {this.props.task.description}
