@@ -1,11 +1,12 @@
-import { FETCH_TASKS } from './types';
-import axios from 'axios';
+import { FETCH_TASKS } from "./types";
+import axios from "axios";
 
 export const fetchTasks = () => dispatch => {
-  axios.get('/api/tasks').then(posts =>
+  console.log("fetching");
+  axios.get("/api/tasks").then(result =>
     dispatch({
       type: FETCH_TASKS,
-      payload: posts
+      payload: result.data
     })
   );
 };

@@ -1,4 +1,4 @@
-import { FETCH_TASKS } from '../actions/types';
+import { FETCH_TASKS } from "../actions/types";
 
 const initialState = {
   items: []
@@ -6,7 +6,8 @@ const initialState = {
 
 const tasksReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'FETCH_TASKS':
+    case FETCH_TASKS:
+      console.log("desio se reducer");
       return {
         ...state,
         items: action.payload
@@ -15,3 +16,5 @@ const tasksReducer = (state = initialState, action) => {
       return state;
   }
 };
+
+export default tasksReducer;
