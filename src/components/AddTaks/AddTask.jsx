@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import "./AddTask.css";
+import React, { Component } from 'react';
+import './AddTask.css';
 
 class AddTask extends Component {
   state = {
-    taskDescription: ""
+    taskDescription: ''
   };
 
   updateInputValue = e => {

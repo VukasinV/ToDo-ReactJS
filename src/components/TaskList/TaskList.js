@@ -1,16 +1,15 @@
-import React, { Component } from "react";
-import AddTask from "../AddTaks/AddTask";
-import Task from "../Task/Task";
-import "./TaskList.css";
-import axios from "axios";
-import { CSSTransition } from "react-transition-group";
-import leftArrow from "../../static/left-arrow.svg";
-import rightArrow from "../../static/right-arrow.svg";
-import { connect } from "react-redux";
-import { fetchTasks, createTask } from "../../services/actions/tasksActions";
+import React, { Component } from 'react';
+import AddTask from '../AddTaks/AddTask';
+import Task from '../Task/Task';
+import './TaskList.css';
+import axios from 'axios';
+import leftArrow from '../../static/left-arrow.svg';
+import rightArrow from '../../static/right-arrow.svg';
+import { connect } from 'react-redux';
+import { fetchTasks, createTask } from '../../services/actions/tasksActions';
 
 class TaskList extends Component {
-  state = { value: "This is state value", tasks: [], tasksFromProps: [] };
+  state = { value: 'This is state value', tasks: [], tasksFromProps: [] };
 
   componentDidMount() {
     this.props.fetchTasks();
@@ -23,15 +22,16 @@ class TaskList extends Component {
   };
 
   handleAddEvent = eventDescription => {
-    axios
-      .post("/api/tasks", { description: eventDescription })
-      .then(res => this.setState({ tasks: res.data }));
+    // axios
+    //   .post('/api/tasks', { description: eventDescription })
+    //   .then(res => this.setState({ tasks: res.data }));
+    this.props.createTask(eventDescription);
+    this.props.fetchTasks();
   };
 
   deleteTask = id => {
-    console.log(id);
     axios
-      .delete("/api/tasks/" + id)
+      .delete('/api/tasks/' + id)
       .then(res => this.setState({ tasks: res.data }));
   };
 
@@ -56,14 +56,12 @@ class TaskList extends Component {
         <div className="task-list__pool">
           {this.props.tasks.map((x, id) => {
             return (
-              <CSSTransition key={id} timeout={500} classNames="task">
-                <Task
-                  key={id}
-                  task={x}
-                  taskFinished={this.taskFinished}
-                  deleteTask={this.deleteTask}
-                />
-              </CSSTransition>
+              <Task
+                key={id}
+                task={x}
+                taskFinished={this.taskFinished}
+                deleteTask={this.deleteTask}
+              />
             );
           })}
         </div>

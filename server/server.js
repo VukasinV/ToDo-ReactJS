@@ -1,20 +1,19 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const fileSystem = require("fs");
+const express = require('express');
+const bodyParser = require('body-parser');
+const fileSystem = require('fs');
 
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 const port = 5000;
 
-app.get("/api/tasks", (req, res) => {
-  let tasks = require("./data/tasks.json");
+app.get('/api/tasks', (req, res) => {
+  let tasks = require('./data/tasks.json');
   res.json(tasks);
 });
 
-app.post("/api/tasks", (req, res) => {
-  const oldTasks = require("./data/tasks.json");
-  console.log(oldTasks);
+app.post('/api/tasks', (req, res) => {
+  const oldTasks = require('./data/tasks.json');
   let task = req.body;
   const newId =
     Math.max.apply(
@@ -30,18 +29,18 @@ app.post("/api/tasks", (req, res) => {
     ...task
   };
   const newTasks = [task, ...oldTasks];
-  fileSystem.writeFile("./data/tasks.json", JSON.stringify(newTasks), err => {
-    console.log(err);
+  fileSystem.writeFile('./data/tasks.json', JSON.stringify(newTasks), err => {
+    console.log('Error happend during posting tasks. Error message: ' + err);
   });
-  res.json(newTasks);
+  res.json(task);
 });
 
-app.delete("/api/tasks/:id", (req, res) => {
-  let tasks = require("./data/tasks.json").filter(x => {
+app.delete('/api/tasks/:id', (req, res) => {
+  let tasks = require('./data/tasks.json').filter(x => {
     // eslint-disable-next-line eqeqeq
     return x.id != req.params.id;
   });
-  fileSystem.writeFile("./data/tasks.json", JSON.stringify(tasks), err => {
+  fileSystem.writeFile('./data/tasks.json', JSON.stringify(tasks), err => {
     console.log(err);
   });
   res.json(tasks);
